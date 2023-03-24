@@ -1,41 +1,26 @@
 import java.util.Iterator;
+import java.util.PrimitiveIterator;
 import java.util.Random;
 
 public class Randoms implements Iterable<Integer> {
-    protected Random random;
-    protected int min;
-    protected int max;
+    protected PrimitiveIterator.OfInt random;
 
     public Randoms(int min, int max) {
-        this.min = min;
-        this.max = max;
+        random = new Random().ints(min, max + 1).iterator();
     }
 
     @Override
     public Iterator<Integer> iterator() {
-        return new Iterator<>() {
-
+        return new Iterator<Integer>() {
             @Override
             public boolean hasNext() {
-                return true;
+                return true;//всегда true для бесконечности
             }
 
             @Override
             public Integer next() {
-
-                while (true) {
-                    random = new Random();
-                    int i = random.nextInt(max + 1);
-
-                    if (i >= min) {
-                        return i;
-                    }
-
-                }
+                return random.nextInt();//возвращаем следующее сгенерированное число
             }
         };
     }
 }
-
-
-
