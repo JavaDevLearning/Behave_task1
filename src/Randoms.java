@@ -1,9 +1,6 @@
 import java.util.Iterator;
-import java.util.PrimitiveIterator;
 import java.util.Random;
 
-import java.util.Iterator;
-import java.util.Random;
 
 public class Randoms implements Iterable<Integer> {
     protected Random random = new Random();
